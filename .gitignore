@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+lecture/1.1.py
+lecture/1.2.py
+lecture/2.py

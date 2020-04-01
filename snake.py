@@ -94,7 +94,7 @@ def isEaten(snake, food):
 
 def drawScore(score):
     font = pygame.font.SysFont('Courier', 24, bold=True)
-    text = font.render(f'Score: {score}', True, (255, 255, 0xFF), [0, 0, 0])
+    text = font.render(f'Score: {score}', True, (0, 0, 0))
     screen.blit(text, (screen.get_width() - text.get_width() - 20, 10))
 
 ##########################################    Init    ##########################################
@@ -151,9 +151,7 @@ while not done:
 
 if gameOver:
     font = pygame.font.SysFont('Courier', 48, bold=True)
-    text = font.render(f'Game Over Score: {snake.size - 1}', True, (0, 0, 0))
-    text.set_alpha(100)
-    pygame.Surface.set_alpha()
+    text = font.render(f'Game Over. Score: {snake.size - 1}', True, (0, 0, 0))
     screen.blit(background, (0, 0))
     screen.blit(text, (screen.get_width() // 2 - text.get_width() // 2,
                        screen.get_height() // 2 - text.get_height() // 2))

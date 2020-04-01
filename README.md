@@ -1,2 +1,2 @@
 # SnakePython
-Spaceship Game on Python (using pygame)
+Snake Game on Python (using pygame)

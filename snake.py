@@ -113,6 +113,20 @@ clock = pygame.time.Clock()
 
 ##########################################    Main loop    ##########################################
 
+font = pygame.font.SysFont('Courier', 48, bold=True)
+start_text = font.render('Press space to start', True, (0, 0, 0))
+screen.blit(background, (0, 0))
+screen.blit(start_text, (screen.get_width() // 2 - start_text.get_width() // 2,
+                         screen.get_height() // 2 - start_text.get_height() // 2))
+pygame.display.flip()
+
+while not done:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            done = True
+    if pygame.key.get_pressed()[pygame.K_SPACE]:
+        break
+
 while not done:
     clock.tick(FPS)
     for event in pygame.event.get():
@@ -150,12 +164,17 @@ while not done:
 
 
 if gameOver:
-    font = pygame.font.SysFont('Courier', 48, bold=True)
-    text = font.render(f'Game Over. Score: {snake.size - 1}', True, (0, 0, 0))
+    end_text = font.render(f'Game Over. Score: {snake.size - 1}', True, (0, 0, 0))
     screen.blit(background, (0, 0))
-    screen.blit(text, (screen.get_width() // 2 - text.get_width() // 2,
-                       screen.get_height() // 2 - text.get_height() // 2))
+    screen.blit(end_text, (screen.get_width() // 2 - end_text.get_width() // 2,
+                           screen.get_height() // 2 - end_text.get_height() // 2))
     pygame.display.flip()
-    clock.tick(0.33) # wait 3 seconds
+
+    sec = 0
+    while sec < 3:
+        sec += clock.tick(30) / 1000
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sec = 3
 
 pygame.quit()

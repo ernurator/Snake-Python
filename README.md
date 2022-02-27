@@ -1,2 +1,4 @@
-# SnakePython
-Snake Game on Python (using pygame)
+# Snake Python
+
+Snake Game on Python (created using Pygame)
+
